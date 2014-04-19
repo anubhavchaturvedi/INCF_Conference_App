@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="android.support.v4.app.FragmentActivity"/>
+<fullyQualifiedTypeName name="org.g_node.incfconferenceapp.schedule.Schedule"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.R.layout"/>
+<fullyQualifiedTypeName name="org.g_node.incfconferenceapp.R.layout"/>
+<fullyQualifiedTypeName name="org.g_node.incfconferenceapp.map.INCFLocations"/>
+<fullyQualifiedTypeName name="org.g_node.incfconferenceapp.R"/>
+<fullyQualifiedTypeName name="com.google.android.gms.maps.MapFragment"/>
+<fullyQualifiedTypeName name="org.g_node.incfconferenceapp.map.MapFragment"/>
+<fullyQualifiedTypeName name="com.google.android.gms.maps.GoogleMap.OnMarkerClickListener"/>
+<fullyQualifiedTypeName name="com.google.android.gms.maps.SupportMapFragment"/>
+<fullyQualifiedTypeName name="android.support.v4.app.FragmentManager"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="android.app.Fragment"/>
+<fullyQualifiedTypeName name="android.support.v4.app.Fragment"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Field"/>
+<fullyQualifiedTypeName name="android.support.v4.app.ActionBarDrawerToggle"/>
+<fullyQualifiedTypeName name="org.g_node.incfconferenceapp.R.string"/>
+<fullyQualifiedTypeName name="org.g_node.incfconferenceapp.R.id"/>
+<fullyQualifiedTypeName name="org.g_node.incfconferenceapp.R.drawable"/>
+<fullyQualifiedTypeName name="android.app.FragmentTransaction"/>
+<fullyQualifiedTypeName name="android.app.FragmentManager"/>
+<fullyQualifiedTypeName name="android.os.Handler"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="org.g_node.incfconferenceapp.SplashScreen"/>
+<fullyQualifiedTypeName name="org.g_node.incfconferenceapp.MainActivity"/>
+</qualifiedTypeNameHistroy>

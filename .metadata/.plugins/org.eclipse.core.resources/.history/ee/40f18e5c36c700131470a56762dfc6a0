@@ -1,0 +1,165 @@
+package org.g_node.incfconferenceapp;
+
+import org.g_node.incfconferenceapp.abstracts.Abstracts;
+import org.g_node.incfconferenceapp.map.INCFLocations;
+import org.g_node.incfconferenceapp.schedule.Schedule;
+
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+
+
+public class MainActivity extends Activity {
+	
+	private DrawerLayout mDrawerLayout;
+	private ListView mDrawerList;
+	private CharSequence mTitle;
+	private Fragment map;
+	
+	private final String navigationDrawerItems[]={
+			"Home",
+			"Schedule",
+			"Abstracts",
+			"Map",
+			"Notes",
+			"Itenerary Planner",
+			"News Feed",
+			"General Information"
+	};
+	
+	private class DrawerItemClickListener implements ListView.OnItemClickListener {
+	    @Override
+	    public void onItemClick(AdapterView parent, View view, int position, long id) {
+	        changeScreen(position);	    	
+	    }
+	}
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		if (Build.VERSION.SDK_INT < 16) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
+		else
+		{
+			View decorView = getWindow().getDecorView();
+			// Hide the status bar.
+			int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+			decorView.setSystemUiVisibility(uiOptions);
+		}
+		
+		setContentView(R.layout.activity_main);
+		
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerList = (ListView) findViewById(R.id.left_drawer);
+		mDrawerList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, navigationDrawerItems));
+		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+		
+		setTitle(navigationDrawerItems[0]);
+		
+		map=null;
+		
+		//getActionBar().setDisplayHomeAsUpEnabled(false);
+		getActionBar().setDisplayShowHomeEnabled(true);
+		
+		changeScreen(0);
+	}
+	
+	/** Swaps fragments in the main content view */
+	private void changeScreen(int position) {
+	    // Create a new fragment and specify the planet to show based on position
+		if(position==0)
+		{
+			changeToHome(position);
+		}
+		else if(position==1)
+		{
+			changeToProgramme(position);
+		}
+		else if(position == 3)
+		{
+			changeToMap(position);
+		}
+		else if( navigationDrawerItems[position].equals("Abstracts"))
+		{
+			changeToAbstracts(position);
+		}
+	}
+	
+	@Override
+	public void setTitle(CharSequence title) {
+	    mTitle = title;
+	    getActionBar().setTitle(mTitle);
+	}
+	
+	private void changeToProgramme(int position)
+	{
+		Fragment fragment = new Schedule();
+		
+	    FragmentManager fragmentManager = getFragmentManager();
+	    fragmentManager.beginTransaction()
+	                   .replace(R.id.content_frame, fragment)
+	                   .commit();
+
+	    // Highlight the selected item, update the title, and close the drawer
+	    mDrawerList.setItemChecked(position, true);
+	    setTitle(navigationDrawerItems[position]);
+	    mDrawerLayout.closeDrawer(mDrawerList);
+	}
+	
+	private void changeToAbstracts(int position)
+	{
+		Fragment fragment = new Abstracts();
+		
+	    FragmentManager fragmentManager = getFragmentManager();
+	    fragmentManager.beginTransaction()
+	                   .replace(R.id.content_frame, fragment)
+	                   .commit();
+
+	    // Highlight the selected item, update the title, and close the drawer
+	    mDrawerList.setItemChecked(position, true);
+	    setTitle(navigationDrawerItems[position]);
+	    mDrawerLayout.closeDrawer(mDrawerList);
+	}
+
+	private void changeToHome(int position)
+	{
+		Fragment fragment = new Home();
+		
+		FragmentManager fragmentManager = getFragmentManager();
+	    fragmentManager.beginTransaction()
+	                   .replace(R.id.content_frame, fragment)
+	                   .commit();
+
+	    // Highlight the selected item, update the title, and close the drawer
+	    mDrawerList.setItemChecked(position, true);
+	    setTitle(navigationDrawerItems[position]);
+	    mDrawerLayout.closeDrawer(mDrawerList);
+	}
+	
+	private void changeToMap(int position)
+	{
+		if(map==null)
+			map = new INCFLocations();
+		
+		FragmentManager fragmentManager = getFragmentManager();
+	    fragmentManager.beginTransaction().replace(R.id.content_frame, map)
+	                   .commit();
+
+	    // Highlight the selected item, update the title, and close the drawer
+	    mDrawerList.setItemChecked(position, true);
+	    setTitle(navigationDrawerItems[position]);
+	    mDrawerLayout.closeDrawer(mDrawerList);
+	}
+}

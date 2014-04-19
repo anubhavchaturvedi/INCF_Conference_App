@@ -1,0 +1,49 @@
+package org.g_node.incfconferenceapp.map;
+
+import org.g_node.incfconferenceapp.R;
+
+import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+
+public class MapFragment extends ActionBarActivity
+{		
+	
+	//Inatantiate Google map
+	private GoogleMap mMap;
+
+	@Override
+	protected void onCreate(Bundle savedinstancestate) {
+		super.onCreate(savedinstancestate);
+		setContentView(R.layout.fragment_map);
+		
+		ActionBar actionBar = getSupportActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setHomeButtonEnabled(true);
+		setUpMapIfNeeded();
+		
+	}
+
+	@Override
+    protected void onResume() {
+        super.onResume();
+        setUpMapIfNeeded();
+    }
+
+	private void setUpMapIfNeeded() {
+		// Do a null check to confirm that we have not already instantiated the map.
+        if (mMap == null) {
+            // Try to obtain the map from the SupportMapFragment.
+            mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
+                    .getMap();
+            // Check if we were successful in obtaining the map.
+            if (mMap != null) {
+                //setUpMap();
+            }
+        }
+		
+	}
+}

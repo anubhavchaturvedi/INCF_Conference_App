@@ -1,0 +1,23 @@
+package org.g_node.incfconferenceapp;
+
+import org.g_node.incfconferenceapp.R;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+public class Home extends Fragment{
+	
+
+	@Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+		TextView information = (TextView) getActivity().findViewById(R.id.homeText);
+		information.setText("njkdfjksdfbkjsd");
+        return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+}
